@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AndelerCorpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AmericanLP.dbo.Create_emPower_emBroker_Accounts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Create_emPower_emBroker_Accounts">
+          <Key>
+            <PropertyRef Name="ClientId" />
+            <PropertyRef Name="AccountKey" />
+            <PropertyRef Name="ReferenceAccountId" />
+            <PropertyRef Name="AccountStartDate" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="ClientId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AcccountName" Type="nvarchar" MaxLength="60" />
+          <Property Name="AccountKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="30" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="18" />
+          <Property Name="ReferenceAccountId" Type="int" Nullable="false" />
+          <Property Name="AccountStartDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AmericanLP.dbo.Create_empower_embroker_Invoice_InvoiceLineitems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Create_empower_embroker_Invoice_InvoiceLineitems">
+          <Key>
+            <PropertyRef Name="InvoiceUnits" />
+            <PropertyRef Name="ReferenceSitecode" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="State" />
+            <PropertyRef Name="Zip" />
+            <PropertyRef Name="ServiceStartDate" />
+            <PropertyRef Name="UsageStartDate" />
+            <PropertyRef Name="UsageEndDate" />
+            <PropertyRef Name="UsageCharge" />
+            <PropertyRef Name="InvoiceKey" />
+            <PropertyRef Name="AccountKey" />
+          </Key>
+          <Property Name="InvoiceUnits" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="ReferenceSitecode" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Zip" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="ServiceStartDate" Type="datetime" Nullable="false" />
+          <Property Name="ServiceEndDate" Type="datetime" />
+          <Property Name="UsageStartDate" Type="datetime" Nullable="false" />
+          <Property Name="UsageEndDate" Type="datetime" Nullable="false" />
+          <Property Name="UsageCharge" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="InvoiceKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AccountKey" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AmericanLP.dbo.Create_emPower_emBroker_Invoices' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Create_emPower_emBroker_Invoices">
+          <Key>
+            <PropertyRef Name="ClientId" />
+            <PropertyRef Name="ReferenceAccountNumber" />
+            <PropertyRef Name="ReferenceInvoiceId" />
+            <PropertyRef Name="InvoiceKey" />
+            <PropertyRef Name="AccountKey" />
+            <PropertyRef Name="Currency" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="ClientId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ReferenceAccountNumber" Type="int" Nullable="false" />
+          <Property Name="ReferenceInvoiceId" Type="int" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="TotalInvoiceAmount" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="InvoiceKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Incorrect" Type="bit" />
+          <Property Name="AccountKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PaidInFullDate" Type="datetime" />
+          <Property Name="Currency" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AmericanLP.dbo.Create_empower_embroker_Payment_By_AccountNumber' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Create_empower_embroker_Payment_By_AccountNumber">
+          <Key>
+            <PropertyRef Name="Currency" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="ActionType" />
+            <PropertyRef Name="ReferenceAccountId" />
+            <PropertyRef Name="ReferenceInvoiceId" />
+          </Key>
+          <Property Name="ReferencePaymentId" Type="nvarchar" MaxLength="30" />
+          <Property Name="AccountDeposit" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="Currency" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ActionType" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="TransactionDate" Type="datetime2" Precision="7" />
+          <Property Name="ReferenceAccountId" Type="int" Nullable="false" />
+          <Property Name="ReferenceInvoiceId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AmericanLP.dbo.Create_emPower_emBroker_Sitecodes_By_AccountKey' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Create_emPower_emBroker_Sitecodes_By_AccountKey">
+          <Key>
+            <PropertyRef Name="ClientId" />
+            <PropertyRef Name="Sitecodevalue" />
+            <PropertyRef Name="SitecodeStartDate" />
+            <PropertyRef Name="AccountKey" />
+          </Key>
+          <Property Name="ClientId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Sitecodevalue" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="ReferenceSitecodeId" Type="nvarchar" MaxLength="111" />
+          <Property Name="Address" Type="nvarchar" MaxLength="30" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" />
+          <Property Name="State" Type="nvarchar" MaxLength="30" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="30" />
+          <Property Name="SitecodeStartDate" Type="datetime" Nullable="false" />
+          <Property Name="SitecodeEndDate" Type="datetime" />
+          <Property Name="AccountKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="AndelerCorpModelStoreContainer">
+          <EntitySet Name="Create_emPower_emBroker_Accounts" EntityType="Self.Create_emPower_emBroker_Accounts" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Create_emPower_emBroker_Accounts].[ClientId] AS [ClientId], 
+    [Create_emPower_emBroker_Accounts].[AcccountName] AS [AcccountName], 
+    [Create_emPower_emBroker_Accounts].[AccountKey] AS [AccountKey], 
+    [Create_emPower_emBroker_Accounts].[email] AS [email], 
+    [Create_emPower_emBroker_Accounts].[Mobile] AS [Mobile], 
+    [Create_emPower_emBroker_Accounts].[ReferenceAccountId] AS [ReferenceAccountId], 
+    [Create_emPower_emBroker_Accounts].[AccountStartDate] AS [AccountStartDate], 
+    [Create_emPower_emBroker_Accounts].[Status] AS [Status]
+    FROM [dbo].[Create_emPower_emBroker_Accounts] AS [Create_emPower_emBroker_Accounts]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Create_empower_embroker_Invoice_InvoiceLineitems" EntityType="Self.Create_empower_embroker_Invoice_InvoiceLineitems" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Create_empower_embroker_Invoice_InvoiceLineitems].[InvoiceUnits] AS [InvoiceUnits], 
+    [Create_empower_embroker_Invoice_InvoiceLineitems].[ReferenceSitecode] AS [ReferenceSitecode], 
+    [Create_empower_embroker_Invoice_InvoiceLineitems].[Address] AS [Address], 
+    [Create_empower_embroker_Invoice_InvoiceLineitems].[City] AS [City], 
+    [Create_empower_embroker_Invoice_InvoiceLineitems].[State] AS [State], 
+    [Create_empower_embroker_Invoice_InvoiceLineitems].[Zip] AS [Zip], 
+    [Create_empower_embroker_Invoice_InvoiceLineitems].[ServiceStartDate] AS [ServiceStartDate], 
+    [Create_empower_embroker_Invoice_InvoiceLineitems].[ServiceEndDate] AS [ServiceEndDate], 
+    [Create_empower_embroker_Invoice_InvoiceLineitems].[UsageStartDate] AS [UsageStartDate], 
+    [Create_empower_embroker_Invoice_InvoiceLineitems].[UsageEndDate] AS [UsageEndDate], 
+    [Create_empower_embroker_Invoice_InvoiceLineitems].[UsageCharge] AS [UsageCharge], 
+    [Create_empower_embroker_Invoice_InvoiceLineitems].[InvoiceKey] AS [InvoiceKey], 
+    [Create_empower_embroker_Invoice_InvoiceLineitems].[AccountKey] AS [AccountKey]
+    FROM [dbo].[Create_empower_embroker_Invoice_InvoiceLineitems] AS [Create_empower_embroker_Invoice_InvoiceLineitems]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Create_emPower_emBroker_Invoices" EntityType="Self.Create_emPower_emBroker_Invoices" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Create_emPower_emBroker_Invoices].[ClientId] AS [ClientId], 
+    [Create_emPower_emBroker_Invoices].[ReferenceAccountNumber] AS [ReferenceAccountNumber], 
+    [Create_emPower_emBroker_Invoices].[ReferenceInvoiceId] AS [ReferenceInvoiceId], 
+    [Create_emPower_emBroker_Invoices].[InvoiceDate] AS [InvoiceDate], 
+    [Create_emPower_emBroker_Invoices].[TotalInvoiceAmount] AS [TotalInvoiceAmount], 
+    [Create_emPower_emBroker_Invoices].[InvoiceKey] AS [InvoiceKey], 
+    [Create_emPower_emBroker_Invoices].[Incorrect] AS [Incorrect], 
+    [Create_emPower_emBroker_Invoices].[AccountKey] AS [AccountKey], 
+    [Create_emPower_emBroker_Invoices].[PaidInFullDate] AS [PaidInFullDate], 
+    [Create_emPower_emBroker_Invoices].[Currency] AS [Currency], 
+    [Create_emPower_emBroker_Invoices].[Status] AS [Status]
+    FROM [dbo].[Create_emPower_emBroker_Invoices] AS [Create_emPower_emBroker_Invoices]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Create_empower_embroker_Payment_By_AccountNumber" EntityType="Self.Create_empower_embroker_Payment_By_AccountNumber" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Create_empower_embroker_Payment_By_AccountNumber].[ReferencePaymentId] AS [ReferencePaymentId], 
+    [Create_empower_embroker_Payment_By_AccountNumber].[AccountDeposit] AS [AccountDeposit], 
+    [Create_empower_embroker_Payment_By_AccountNumber].[Currency] AS [Currency], 
+    [Create_empower_embroker_Payment_By_AccountNumber].[Description] AS [Description], 
+    [Create_empower_embroker_Payment_By_AccountNumber].[ActionType] AS [ActionType], 
+    [Create_empower_embroker_Payment_By_AccountNumber].[TransactionDate] AS [TransactionDate], 
+    [Create_empower_embroker_Payment_By_AccountNumber].[ReferenceAccountId] AS [ReferenceAccountId], 
+    [Create_empower_embroker_Payment_By_AccountNumber].[ReferenceInvoiceId] AS [ReferenceInvoiceId]
+    FROM [dbo].[Create_empower_embroker_Payment_By_AccountNumber] AS [Create_empower_embroker_Payment_By_AccountNumber]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Create_emPower_emBroker_Sitecodes_By_AccountKey" EntityType="Self.Create_emPower_emBroker_Sitecodes_By_AccountKey" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Create_emPower_emBroker_Sitecodes_By_AccountKey].[ClientId] AS [ClientId], 
+    [Create_emPower_emBroker_Sitecodes_By_AccountKey].[Sitecodevalue] AS [Sitecodevalue], 
+    [Create_emPower_emBroker_Sitecodes_By_AccountKey].[ReferenceSitecodeId] AS [ReferenceSitecodeId], 
+    [Create_emPower_emBroker_Sitecodes_By_AccountKey].[Address] AS [Address], 
+    [Create_emPower_emBroker_Sitecodes_By_AccountKey].[City] AS [City], 
+    [Create_emPower_emBroker_Sitecodes_By_AccountKey].[State] AS [State], 
+    [Create_emPower_emBroker_Sitecodes_By_AccountKey].[Zip] AS [Zip], 
+    [Create_emPower_emBroker_Sitecodes_By_AccountKey].[SitecodeStartDate] AS [SitecodeStartDate], 
+    [Create_emPower_emBroker_Sitecodes_By_AccountKey].[SitecodeEndDate] AS [SitecodeEndDate], 
+    [Create_emPower_emBroker_Sitecodes_By_AccountKey].[AccountKey] AS [AccountKey], 
+    [Create_emPower_emBroker_Sitecodes_By_AccountKey].[Status] AS [Status]
+    FROM [dbo].[Create_emPower_emBroker_Sitecodes_By_AccountKey] AS [Create_emPower_emBroker_Sitecodes_By_AccountKey]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AndelerCorpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Create_emPower_emBroker_Accounts">
+          <Key>
+            <PropertyRef Name="ClientId" />
+            <PropertyRef Name="AccountKey" />
+            <PropertyRef Name="ReferenceAccountId" />
+            <PropertyRef Name="AccountStartDate" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="ClientId" Type="Guid" Nullable="false" />
+          <Property Name="AcccountName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="AccountKey" Type="Guid" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="18" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceAccountId" Type="Int32" Nullable="false" />
+          <Property Name="AccountStartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Create_empower_embroker_Invoice_InvoiceLineitems">
+          <Key>
+            <PropertyRef Name="InvoiceUnits" />
+            <PropertyRef Name="ReferenceSitecode" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="State" />
+            <PropertyRef Name="Zip" />
+            <PropertyRef Name="ServiceStartDate" />
+            <PropertyRef Name="UsageStartDate" />
+            <PropertyRef Name="UsageEndDate" />
+            <PropertyRef Name="UsageCharge" />
+            <PropertyRef Name="InvoiceKey" />
+            <PropertyRef Name="AccountKey" />
+          </Key>
+          <Property Name="InvoiceUnits" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="ReferenceSitecode" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Zip" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ServiceStartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ServiceEndDate" Type="DateTime" Precision="3" />
+          <Property Name="UsageStartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsageEndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsageCharge" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="InvoiceKey" Type="Guid" Nullable="false" />
+          <Property Name="AccountKey" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Create_empower_embroker_Payment_By_AccountNumber">
+          <Key>
+            <PropertyRef Name="Currency" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="ActionType" />
+            <PropertyRef Name="ReferenceAccountId" />
+            <PropertyRef Name="ReferenceInvoiceId" />
+          </Key>
+          <Property Name="AccountDeposit" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="Currency" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ActionType" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="7" />
+          <Property Name="ReferencePaymentId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceAccountId" Type="Int32" Nullable="false" />
+          <Property Name="ReferenceInvoiceId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Create_emPower_emBroker_Sitecodes_By_AccountKey">
+          <Key>
+            <PropertyRef Name="ClientId" />
+            <PropertyRef Name="Sitecodevalue" />
+            <PropertyRef Name="SitecodeStartDate" />
+            <PropertyRef Name="AccountKey" />
+          </Key>
+          <Property Name="ClientId" Type="Guid" Nullable="false" />
+          <Property Name="Sitecodevalue" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReferenceSitecodeId" Type="String" MaxLength="111" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SitecodeStartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SitecodeEndDate" Type="DateTime" Precision="3" />
+          <Property Name="AccountKey" Type="Guid" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="AndelerCorpEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Create_emPower_emBroker_Accounts" EntityType="Self.Create_emPower_emBroker_Accounts" />
+          <EntitySet Name="Create_empower_embroker_Invoice_InvoiceLineitems" EntityType="Self.Create_empower_embroker_Invoice_InvoiceLineitems" />
+          <EntitySet Name="Create_empower_embroker_Payment_By_AccountNumber" EntityType="Self.Create_empower_embroker_Payment_By_AccountNumber" />
+          <EntitySet Name="Create_emPower_emBroker_Sitecodes_By_AccountKey" EntityType="Self.Create_emPower_emBroker_Sitecodes_By_AccountKey" />
+          <EntitySet Name="Create_emPower_emBroker_Invoices" EntityType="AndelerCorpModel.Create_emPower_emBroker_Invoices" />
+        </EntityContainer>
+        <EntityType Name="Create_emPower_emBroker_Invoices">
+          <Key>
+            <PropertyRef Name="ClientId" />
+            <PropertyRef Name="ReferenceAccountNumber" />
+            <PropertyRef Name="ReferenceInvoiceId" />
+            <PropertyRef Name="InvoiceKey" />
+            <PropertyRef Name="AccountKey" />
+            <PropertyRef Name="Currency" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="ClientId" Type="Guid" Nullable="false" />
+          <Property Name="ReferenceAccountNumber" Type="Int32" Nullable="false" />
+          <Property Name="ReferenceInvoiceId" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalInvoiceAmount" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="InvoiceKey" Type="Guid" Nullable="false" />
+          <Property Name="Incorrect" Type="Boolean" />
+          <Property Name="AccountKey" Type="Guid" Nullable="false" />
+          <Property Name="PaidInFullDate" Type="DateTime" Precision="3" />
+          <Property Name="Currency" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AndelerCorpModelStoreContainer" CdmEntityContainer="AndelerCorpEntities">
+          <EntitySetMapping Name="Create_emPower_emBroker_Accounts">
+            <EntityTypeMapping TypeName="AndelerCorpModel.Create_emPower_emBroker_Accounts">
+              <MappingFragment StoreEntitySet="Create_emPower_emBroker_Accounts">
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="AcccountName" ColumnName="AcccountName" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="ReferenceAccountId" ColumnName="ReferenceAccountId" />
+                <ScalarProperty Name="AccountStartDate" ColumnName="AccountStartDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Create_empower_embroker_Invoice_InvoiceLineitems">
+            <EntityTypeMapping TypeName="AndelerCorpModel.Create_empower_embroker_Invoice_InvoiceLineitems">
+              <MappingFragment StoreEntitySet="Create_empower_embroker_Invoice_InvoiceLineitems">
+                <ScalarProperty Name="InvoiceUnits" ColumnName="InvoiceUnits" />
+                <ScalarProperty Name="ReferenceSitecode" ColumnName="ReferenceSitecode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="ServiceStartDate" ColumnName="ServiceStartDate" />
+                <ScalarProperty Name="ServiceEndDate" ColumnName="ServiceEndDate" />
+                <ScalarProperty Name="UsageStartDate" ColumnName="UsageStartDate" />
+                <ScalarProperty Name="UsageEndDate" ColumnName="UsageEndDate" />
+                <ScalarProperty Name="UsageCharge" ColumnName="UsageCharge" />
+                <ScalarProperty Name="InvoiceKey" ColumnName="InvoiceKey" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Create_empower_embroker_Payment_By_AccountNumber">
+            <EntityTypeMapping TypeName="AndelerCorpModel.Create_empower_embroker_Payment_By_AccountNumber">
+              <MappingFragment StoreEntitySet="Create_empower_embroker_Payment_By_AccountNumber">
+                <ScalarProperty Name="AccountDeposit" ColumnName="AccountDeposit" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ActionType" ColumnName="ActionType" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="ReferencePaymentId" ColumnName="ReferencePaymentId" />
+                <ScalarProperty Name="ReferenceAccountId" ColumnName="ReferenceAccountId" />
+                <ScalarProperty Name="ReferenceInvoiceId" ColumnName="ReferenceInvoiceId"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Create_emPower_emBroker_Sitecodes_By_AccountKey">
+            <EntityTypeMapping TypeName="AndelerCorpModel.Create_emPower_emBroker_Sitecodes_By_AccountKey">
+              <MappingFragment StoreEntitySet="Create_emPower_emBroker_Sitecodes_By_AccountKey">
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="Sitecodevalue" ColumnName="Sitecodevalue" />
+                <ScalarProperty Name="ReferenceSitecodeId" ColumnName="ReferenceSitecodeId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="SitecodeStartDate" ColumnName="SitecodeStartDate" />
+                <ScalarProperty Name="SitecodeEndDate" ColumnName="SitecodeEndDate" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Create_emPower_emBroker_Invoices">
+            <EntityTypeMapping TypeName="AndelerCorpModel.Create_emPower_emBroker_Invoices">
+              <MappingFragment StoreEntitySet="Create_emPower_emBroker_Invoices">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="PaidInFullDate" ColumnName="PaidInFullDate" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="Incorrect" ColumnName="Incorrect" />
+                <ScalarProperty Name="InvoiceKey" ColumnName="InvoiceKey" />
+                <ScalarProperty Name="TotalInvoiceAmount" ColumnName="TotalInvoiceAmount" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="ReferenceInvoiceId" ColumnName="ReferenceInvoiceId" />
+                <ScalarProperty Name="ReferenceAccountNumber" ColumnName="ReferenceAccountNumber" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
